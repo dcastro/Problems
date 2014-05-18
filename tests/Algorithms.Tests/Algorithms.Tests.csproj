@@ -49,10 +49,17 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="FisherYatesShuffleTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Algorithms\Algorithms.csproj">
+      <Project>{d12fe830-981f-44ab-be93-b2625ebce45a}</Project>
+      <Name>Algorithms</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
