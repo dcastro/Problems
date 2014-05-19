@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Algorithms.Extensions;
 
 namespace Algorithms
 {
@@ -19,17 +20,10 @@ namespace Algorithms
         {
             rnd = rnd ?? Rnd;
 
-            Action<T[], int, int> swap = (arr, i, j) =>
-                {
-                    var temp = arr[j];
-                    arr[j] = arr[i];
-                    arr[i] = temp;
-                };
-
             for (int i = array.Length - 1; i >= 1; i--)
             {
                 int j = rnd.Next(0, i + 1);
-                swap(array, i, j);
+                array.Swap(i, j);
             }
         }
 
