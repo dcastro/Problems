@@ -39,6 +39,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BubbleSort.cs" />
     <Compile Include="Extensions\ListEx.cs" />
     <Compile Include="FisherYatesShuffle.cs" />
     <Compile Include="HeapSort.cs" />
