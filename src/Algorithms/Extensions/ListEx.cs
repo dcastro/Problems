@@ -15,5 +15,19 @@ namespace Algorithms.Extensions
             source[first] = source[second];
             source[second] = temp;
         }
+
+        public static int MaxIndex<T>(this IList<T> source, IComparer<T> cmp, params int[] indices)
+        {
+            if (!indices.Any())
+                throw new ArgumentException("indices must contain at least one element.", "indices");
+
+            int max = indices[0];
+
+            for (int i = 1; i < indices.Length; i++)
+                if (cmp.Compare(source[indices[i]], source[max]) > 0)
+                    max = indices[i];
+
+            return max;
+        }
     }
 }

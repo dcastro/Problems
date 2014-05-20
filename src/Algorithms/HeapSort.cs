@@ -29,7 +29,7 @@ namespace Algorithms
 
         private static void Heapify<T>(IList<T> source, IComparer<T> cmp)
         {
-            int start = (int)Math.Floor((source.Count - 2.0) / 2.0);
+            int start = (int) Math.Floor((source.Count - 2.0)/2.0);
             int end = source.Count - 1;
 
             //bottom-up
@@ -45,19 +45,18 @@ namespace Algorithms
             int root = start;
 
             //while root has at least one child
-            while (root * 2 + 1 <= end)
+            while (root*2 + 1 <= end)
             {
-                int leftChild = root * 2 + 1;
+                int leftChild = root*2 + 1;
                 int rightChild = leftChild + 1;
 
                 //check if either the right child or the left child are greater than root
-                int toSwap = root;
-                if (cmp.Compare(source[leftChild], source[toSwap]) > 0)
-                    toSwap = leftChild;
-                if (rightChild < end && cmp.Compare(source[rightChild], source[toSwap]) > 0)
-                    toSwap = rightChild;
+                int toSwap = rightChild < end
+                                 ? source.MaxIndex(cmp, root, leftChild, rightChild)
+                                 : source.MaxIndex(cmp, root, leftChild);
 
-                if (toSwap == root) //root is greater than both children
+                //if the root is greater than both children
+                if (toSwap == root)
                     return;
 
                 //continue sifting down the child
