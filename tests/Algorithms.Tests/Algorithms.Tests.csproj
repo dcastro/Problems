@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="FisherYatesShuffleTests.cs" />
     <Compile Include="HeapSortTests.cs" />
+    <Compile Include="LinkedListMidpointTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuickSortTests.cs" />
     <Compile Include="SieveOfEratosthenesTests.cs" />
