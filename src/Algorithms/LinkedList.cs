@@ -24,15 +24,10 @@ namespace Algorithms
             Node<T> mid = Head;
             Node<T> last = mid;
 
-            bool isEven = false;
-            while (last != null)
+            while (last != null && last.Next != null)
             {
-                last = last.Next;
-
-                if(isEven)
-                    mid = mid.Next;
-
-                isEven = !isEven;
+                last = last.Next.Next;
+                mid = mid.Next;
             }
 
             return mid;
