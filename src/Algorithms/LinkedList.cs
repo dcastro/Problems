@@ -20,7 +20,7 @@ namespace Algorithms
         //O(1) space
         //O(n) processing time
         public Node<T> Midpoint()
-        {
+        {   
             Node<T> mid = Head;
             Node<T> last = mid;
 
