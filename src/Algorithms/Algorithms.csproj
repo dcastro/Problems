@@ -46,6 +46,7 @@
     <Compile Include="KthHighestNumber.cs" />
     <Compile Include="KthLowestNumberFrom2SortedArrays.cs" />
     <Compile Include="LinkedList.cs" />
+    <Compile Include="LumberjackProblem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuickSort.cs" />
     <Compile Include="SieveOfEratosthenes.cs" />
