@@ -44,6 +44,7 @@
     <Compile Include="FisherYatesShuffle.cs" />
     <Compile Include="HeapSort.cs" />
     <Compile Include="KthHighestNumber.cs" />
+    <Compile Include="KthLowestNumberFrom2SortedArrays.cs" />
     <Compile Include="LinkedList.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuickSort.cs" />

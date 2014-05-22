@@ -53,6 +53,7 @@
     <Compile Include="FisherYatesShuffleTests.cs" />
     <Compile Include="HeapSortTests.cs" />
     <Compile Include="KthHighestNumberTests.cs" />
+    <Compile Include="KthLowestNumberFrom2SortedArraysTests.cs" />
     <Compile Include="LinkedListMidpointTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuickSortTests.cs" />
