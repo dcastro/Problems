@@ -52,6 +52,25 @@ namespace Algorithms
             return moveCount;
         }
 
+        //O(n)
+        public static int SolveV2(params int[] bags)
+        {
+            int sum = bags.Sum();
+
+            //check if the candies can be evenly distributed among the bags
+            if (sum%bags.Length != 0)
+                return -1;
+
+            int avg = sum/bags.Length;
+            int moveCount = 0;
+
+            foreach (var bag in bags)
+                if (bag < avg)
+                    moveCount += avg - bag;
+
+            return moveCount;
+        }
+
         private static void SortFirstElement(int[] buffer)
         {
             int index = 0;
