@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Algorithms.Utils;
 
 namespace Algorithms
 {
@@ -27,17 +28,24 @@ namespace Algorithms
          * 
          */
 
+        //O(n)
         public static int Solve(int n)
         {
             //f(n) = Σ (1>= i >= n) (i^2)
             int squares = 0;
 
             for (int i = 1; i <= n; i++)
-            {
                 squares += i*i;
-            }
 
             return squares;
+        }
+
+        public static void Run()
+        {
+            int n;
+
+            while ((n = Input.NextInt()) != 0)
+                Console.WriteLine(Solve(n));
         }
     }
 }

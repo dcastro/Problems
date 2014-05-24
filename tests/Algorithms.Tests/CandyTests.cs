@@ -17,7 +17,6 @@ namespace Algorithms.Tests
         {
             int moves = Candy.Solve(bags);
 
-            Console.WriteLine(moves);
             Assert.Equal(expected, moves);
         }
 
@@ -28,7 +27,6 @@ namespace Algorithms.Tests
         {
             int moves = Candy.SolveV2(bags);
 
-            Console.WriteLine(moves);
             Assert.Equal(expected, moves);
         }
     }
