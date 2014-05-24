@@ -60,6 +60,7 @@
     <Compile Include="KthLowestNumberFrom2SortedArraysTests.cs" />
     <Compile Include="LinkedListMidpointTest.cs" />
     <Compile Include="LumberjackProblemTests.cs" />
+    <Compile Include="MatrixTests.cs" />
     <Compile Include="NumberStepsTests.cs" />
     <Compile Include="PalindromeTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
