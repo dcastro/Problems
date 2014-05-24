@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Algorithms.Utils;
 
 namespace Algorithms
 {
@@ -39,12 +37,27 @@ namespace Algorithms
             if (k.IsPalindrome())
                 k++;
 
-            return Next(k.ToString(CultureInfo.InvariantCulture)
-                         .Select(ch => (int) Char.GetNumericValue(ch))
-                         .ToArray());
+            int[] digits = Next(k.ToString(CultureInfo.InvariantCulture)
+                                 .Select(ch => (int) Char.GetNumericValue(ch))
+                                 .ToArray());
+
+            return DigitsToNumber(digits);
         }
 
-        private static int Next(int[] k)
+        public static string Next(string k)
+        {
+            int[] digits = k.Select(ch => (int) Char.GetNumericValue(ch))
+                            .ToArray();
+
+            if (digits.IsPalindrome())
+                digits = Increment(digits, digits.Length - 1);
+
+            int[] palindrome = Next(digits);
+
+            return string.Join("", palindrome.Select(i => i.ToString(CultureInfo.InvariantCulture)).ToArray());
+        }
+
+        private static int[] Next(int[] k)
         {
             /**
              * The basic idea behind the algorithm is to mirror the left part of the number.
@@ -63,11 +76,11 @@ namespace Algorithms
              */
 
             if (!IsMirrorValid(k))
-                IncrementMSDs(k);
+                k = Increment(k, (k.Length - 1)/2);
 
             MirrorMSDs(k);
 
-            return DigitsToNumber(k);
+            return k;
         }
 
         private static int DigitsToNumber(int[] digits)
@@ -103,9 +116,9 @@ namespace Algorithms
             return true;
         }
 
-        private static void IncrementMSDs(int[] k)
+        private static int[] Increment(int[] k, int end)
         {
-            int current = (k.Length - 1)/2;
+            int current = end;
             do
             {
                 k[current]++;
@@ -113,7 +126,18 @@ namespace Algorithms
                 if (k[current] == 10)
                     k[current] = 0;
 
-            } while (k[current--] == 0);
+            } while (k[current--] == 0 && current >= 0);
+
+            //If all digits are now zero (i.e., 999 => 000)
+            //create new array with 1 more digit (i.e., 000 => 1000)
+            //Note: in this case, we don't need to worry about the digits after "end"
+            if (current < 0 && k[0] == 0)
+            {
+                k = new int[k.Length + 1];
+                k[0] = 1;
+            }
+
+            return k;
         }
 
         private static void MirrorMSDs(int[] k)
@@ -145,6 +169,17 @@ namespace Algorithms
             return source.ToString(CultureInfo.InvariantCulture)
                          .ToCharArray()
                          .IsPalindrome();
+        }
+
+        public static void Run()
+        {
+            int count = Input.NextInt();
+
+            while (count-- > 0)
+            {
+                string k = Input.NextString();
+                Console.WriteLine(Next(k));
+            }
         }
     }
 }

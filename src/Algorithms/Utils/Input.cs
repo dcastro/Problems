@@ -13,5 +13,10 @@ namespace Algorithms.Utils
             var input = Console.ReadLine();
             return int.Parse(input);
         }
+
+        public static string NextString()
+        {
+            return Console.ReadLine();
+        }
     }
 }

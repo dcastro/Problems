@@ -10,7 +10,7 @@ namespace Algorithms
     {
         public static void Main()
         {
-            SquaresInGrid.Run();
+            Palindrome.Run();
         }
     }
 }

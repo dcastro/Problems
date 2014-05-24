@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,16 +20,49 @@ namespace Algorithms.Tests
         [InlineData(199, 202)]
         [InlineData(103, 111)]
         [InlineData(1, 2)]
-        public void NextPalindrome(int k, int expectedPalindrome)
+        [InlineData(9999, 10001)]
+        public void NextPalindrome_AsInt(int k, int expectedPalindrome)
+        {
+            Assert.Equal(expectedPalindrome, Palindrome.Next(k));
+        }
+
+        [Theory]
+        [InlineData("2133", "2222")]
+        [InlineData("2113", "2222")]
+        [InlineData("2101", "2112")]
+        [InlineData("808", "818")]
+        [InlineData("199", "202")]
+        [InlineData("103", "111")]
+        [InlineData("1", "2")]
+        [InlineData("9999", "10001")]
+        public void NextPalindrome_AsString(string k, string expectedPalindrome)
         {
             Assert.Equal(expectedPalindrome, Palindrome.Next(k));
         }
 
         [Theory]
         [PropertyData("NextPalindromeData")]
-        public void NextPalindrome2(int k)
+        public void NextPalindrome_AsInt_Thorough(int k)
         {
             int pal = Palindrome.Next(k);
+
+            Assert.True(pal.IsPalindrome());
+
+            //if there's at least one number between "k" and "pal", those numbers must NOT be palindromes
+            if (pal - k > 1)
+            {
+                IEnumerable<int> nonPalindromes = Enumerable.Range(k + 1, pal - k - 1);
+                foreach (var nonPalindrome in nonPalindromes)
+                    Assert.False(nonPalindrome.IsPalindrome());
+            }
+        }
+
+        [Theory]
+        [PropertyData("NextPalindromeData")]
+        public void NextPalindrome_AsString_Thorough(int k)
+        {
+            string palStr = Palindrome.Next(k.ToString(CultureInfo.InvariantCulture));
+            int pal = int.Parse(palStr);
 
             Assert.True(pal.IsPalindrome());
 
