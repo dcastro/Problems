@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="BubbleSortTests.cs" />
     <Compile Include="CandyTests.cs" />
+    <Compile Include="FibonacciTests.cs" />
     <Compile Include="FisherYatesShuffleTests.cs" />
     <Compile Include="HeapSortTests.cs" />
     <Compile Include="KthHighestNumberTests.cs" />

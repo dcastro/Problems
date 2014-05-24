@@ -45,6 +45,7 @@
     <Compile Include="BubbleSort.cs" />
     <Compile Include="Candy.cs" />
     <Compile Include="Extensions\ListEx.cs" />
+    <Compile Include="Fibonacci.cs" />
     <Compile Include="FisherYatesShuffle.cs" />
     <Compile Include="HeapSort.cs" />
     <Compile Include="KthHighestNumber.cs" />

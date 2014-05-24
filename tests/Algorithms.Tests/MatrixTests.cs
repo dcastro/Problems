@@ -9,7 +9,6 @@ namespace Algorithms.Tests
 {
     public class MatrixTests
     {
-
         [Fact]
         public void Product()
         {
